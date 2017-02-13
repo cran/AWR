@@ -5,16 +5,15 @@
 \alias{AWR-package}
 \title{Installing AWS SDK jars for R}
 \description{
-Downloads and installs the AWS SDK for Java jars from the \code{ARW.jars} packages, which also adds to the Java classpath to be easily used in other R packages.
+Downloads and installs the AWS SDK for Java jars and adds those to the Java classpath to be easily used in other R packages.
+}
+\details{
+The first time the package is loaded (which should happen in most cases automatically right after installation), this will check if the jar files are available and if not, then the package will try to automatically download  the specific version of jar files from the \url{https://gitlab.com/cardcorp/AWR} private repository and push the files to the local \pkg{AWR} package's installation folder. If it does not succeed, please install the package directly from the private repository via \code{install.packages("AWR", repos = "https://cardcorp.gitlab.io/AWR")}, which will download the jars bundled with the source package, so no separate downloads will be required. This is also suggested if you want to run the most recent version of the AWS SDK, as there is a new AWS SDK patch version rolled out almost every other day, while the CRAN updates happen less frequently.
 }
 \examples{
 \dontrun{
-## adding the jars to the Java classpath
 library(rJava)
-
-## creating a client in Java
 kc <- .jnew("com.amazonaws.services.s3.AmazonS3Client")
-## listing the account name
 kc$getS3AccountOwner()$getDisplayName()
 }
 }
