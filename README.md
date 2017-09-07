@@ -17,6 +17,8 @@ The bundled Java SDK is useful for R package developers working with AWS so that
 [1] "foobar"
 ```
 
+For a more complete yet simple example implementation, see the `AWR.KMS` package hosted on [CRAN](https://cran.r-project.org/package=AWR.KMS) and [GitHub](https://github.com/daroczig/AWR.KMS).
+
 ## Installation
 
 ![CRAN version](http://www.r-pkg.org/badges/version-ago/AWR)
@@ -30,11 +32,15 @@ install.packages('AWR')
 But you can similarly easily install the most recent version of the SDK from the development git repository as well thanks to `drat`:
 
 ```r
-install.packages('AWR', repos = 'https://cardcorp.gitlab.io/AWR')
+install.packages('AWR', repos = 'https://daroczig.gitlab.io/AWR')
 ```
 
 If you want to install a specific version of the AWS SDK, then refer to the version tag, eg installing `1.11.76`:
 
 ```r
-install.packages('https://gitlab.com/cardcorp/AWR/repository/archive.tar.gz?ref=1.11.76', repos = NULL)
+install.packages('https://gitlab.com/daroczig/AWR/repository/archive.tar.gz?ref=1.11.76', repos = NULL)
 ```
+
+## Changelog
+
+The R package versioning follows the AWS SDK for Java versions, so see https://github.com/aws/aws-sdk-java/blob/master/CHANGELOG.md for the list of changes.

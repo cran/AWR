@@ -2,7 +2,7 @@
 #'
 #' Downloads and installs the AWS SDK for Java jars and adds those to the Java classpath to be easily used in other R packages.
 #'
-#' The first time the package is loaded (which should happen in most cases automatically right after installation), this will check if the jar files are available and if not, then the package will try to automatically download  the specific version of jar files from the \url{https://gitlab.com/cardcorp/AWR} private repository and push the files to the local \pkg{AWR} package's installation folder. If it does not succeed, please install the package directly from the private repository via \code{install.packages("AWR", repos = "https://cardcorp.gitlab.io/AWR")}, which will download the jars bundled with the source package, so no separate downloads will be required. This is also suggested if you want to run the most recent version of the AWS SDK, as there is a new AWS SDK patch version rolled out almost every other day, while the CRAN updates happen less frequently.
+#' The first time the package is loaded (which should happen in most cases automatically right after installation), this will check if the jar files are available and if not, then the package will try to automatically download  the specific version of jar files from the \url{https://gitlab.com/daroczig/AWR} private repository and push the files to the local \pkg{AWR} package's installation folder. If it does not succeed, please install the package directly from the private repository via \code{install.packages("AWR", repos = "https://daroczig.gitlab.io/AWR")}, which will download the jars bundled with the source package, so no separate downloads will be required. This is also suggested if you want to run the most recent version of the AWS SDK, as there is a new AWS SDK patch version rolled out almost every other day, while the CRAN updates happen less frequently.
 #' @references \url{https://aws.amazon.com/sdk-for-java}
 #' @docType package
 #' @importFrom rJava .jpackage
@@ -27,7 +27,7 @@ NULL
         tzip <- tempfile()
         dres <- tryCatch(download.file(
             url = sprintf(
-                'https://gitlab.com/cardcorp/AWR/repository/archive.zip?ref=%s',
+                'https://gitlab.com/daroczig/AWR/repository/archive.zip?ref=%s',
                 packageVersion('AWR')),
             destfile = tzip, mode = 'wb'), error = function(e) e)
 
@@ -69,7 +69,7 @@ NULL
             'The automatic installation of the AWR jars seems to have failed.\n',
             'Please check your Internet connection and if the current user can write to ', path, '\n',
             'If still having issues, install the package from the private repo also including the jars:\n',
-            '\ninstall.packages("AWR", repos = "https://cardcorp.gitlab.io/AWR")\n')
+            '\ninstall.packages("AWR", repos = "https://daroczig.gitlab.io/AWR")\n')
     }
 
 }
